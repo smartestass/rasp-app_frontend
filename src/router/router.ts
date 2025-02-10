@@ -59,6 +59,11 @@ const router = createRouter({
       //   entityName: route.query.entityName
       // })
     },
+    {
+    path: '/search',
+    name: 'search',
+    component: SearchComponent
+},
     //         {
     //   path: '/',
     //   name: 'home',
