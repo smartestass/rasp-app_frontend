@@ -1,0 +1,45 @@
+{
+  "name": "rasp_frontend",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build"
+  },
+  "dependencies": {
+    "@azure/msal-browser": "^4.0.2",
+    "@popperjs/core": "^2.11.8",
+    "@tailwindcss/vite": "^4.0.4",
+    "@vueuse/core": "^12.5.0",
+    "axios": "^1.7.9",
+    "deepmerge": "^4.3.1",
+    "lodash": "^4.17.21",
+    "sass": "^1.84.0",
+    "sass-loader": "^16.0.4",
+    "v-calendar": "^3.1.2",
+    "v-click-outside": "^3.2.0",
+    "v-click-outside-vue3": "^0.0.1",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0",
+    "vuetify": "^3.7.11"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.0",
+    "@types/node": "^22.10.7",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue-jsx": "^4.1.1",
+    "@vue/tsconfig": "^0.7.0",
+    "autoprefixer": "^10.4.20",
+    "npm-run-all2": "^7.0.2",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^4.0.4",
+    "typescript": "~5.7.3",
+    "vite": "^6.0.11",
+    "vite-plugin-vue-devtools": "^7.7.0",
+    "vue-tsc": "^2.2.0"
+  }
+}
