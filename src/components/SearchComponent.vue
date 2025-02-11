@@ -56,6 +56,8 @@ import axios from "axios";
 import debounce from "lodash/debounce";
 import { onClickOutside } from "@vueuse/core";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 export default {
   data() {
     return {
@@ -79,7 +81,7 @@ export default {
     async search() {
       try {
         const response = await axios.get(
-          `http://10.132.205.20:8081/api/search/${this.searchType}/${this.searchQuery}`
+          `${backendUrl}/api/search/${this.searchType}/${this.searchQuery}`
         );
         this.results = response.data;
       } catch (error) {

@@ -1,7 +1,9 @@
 {
   "files": [],
   "compilerOptions": {
-      "noImplicitAny": false
+      "noImplicitAny": false,
+    "types": ["node", "vite/client"],
+    "moduleResolution": "node"
   },
   "allowJs": true,
   "references": [

@@ -2,6 +2,8 @@ import { ref } from 'vue'
 import { myMsalObj, state} from "@/config/msalConfig.ts";
 import axios from 'axios';
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 export function useAuth() {
     const isAuthenticated = ref(false)
 
@@ -52,7 +54,7 @@ export function useAuth() {
 
     async function getUserDetails(email: string) {
   try {
-    const response = await axios.get(`http://10.132.205.20:8081/api/user_details/${email}`);
+    const response = await axios.get(`${backendUrl}/api/user_details/${email}`);
     console.log('User details:', response.data);
 
 // Обновляем localUser с помощью Object.assign

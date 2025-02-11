@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import App from "@/App.vue";
-import GroupRasp from "@/components/GroupRasp.vue";
-import TeacherRasp from "@/components/TeacherRasp.vue";
 import RaspEntity from "@/components/RaspEntity.vue";
 import NavBar from "@/components/NavBar.vue";
 import {state} from "@/config/msalConfig.ts";

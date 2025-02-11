@@ -4,14 +4,13 @@ export const msalConfig = {
     auth: {
         clientId: '25dfbd5a-b156-4da3-b45d-2fe614e8268d',
         authority: 'https://login.microsoftonline.com/19ba435d-e46c-436a-84f2-1b01e693e480',
-        redirectUri: 'https://10.132.205.20'
+        redirectUri: 'http://localhost:5173'
     },
     cache: {
         cacheLocation: 'sessionStorage',
         storeAuthStateInCookie: false
     },
 }
-
 export const graphScopes: RedirectRequest = {
     scopes: ['user.read']
 };

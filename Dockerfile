@@ -18,5 +18,8 @@ RUN npm install
 # Копируем остальной код после установки зависимостей
 COPY . ${PROJ_DIR}/
 
-# Запуск сервера
-CMD ["npm", "run", "serve"]
+# Собираем проект
+RUN npm run build
+
+# Запускаем сервер
+CMD ["npx", "serve", "dist"]

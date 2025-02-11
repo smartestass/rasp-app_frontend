@@ -62,6 +62,8 @@ import axios from 'axios'; // Импортируем axios
 import Day from "@/components/Day.vue"; // Импортируем компонент Day
 import { useRoute } from 'vue-router'; // Импортируем useRoute для работы с маршрутами
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const date = ref(new Date());
 const data = ref({});
 
@@ -88,8 +90,15 @@ const props = defineProps({
 });
 
 const formattedDate = computed(() => {
-  return date.value.toLocaleDateString();
+  if (date.value instanceof Date) {
+    return date.value.toLocaleDateString();
+  }
+  return (date.value as { ariaLabel: string }).ariaLabel || '';
 });
+
+// const formattedDate = computed(() => {
+//   return date.value.toLocaleDateString();
+// });
 
 const attrs = ref([
   {
@@ -107,14 +116,14 @@ const closeCalendar = () => {
   isCalendarVisible.value = false;
 };
 
-async function sendDate(selectedDate: Date) {
+async function sendDate(selectedDate: any) {
   try {
-    const response = await axios.get(`http://10.132.205.20:8081/api/${props.entityRoute}/${props.entityId}`, {
+    const response = await axios.get(`${backendUrl}/api/${props.entityRoute}/${props.entityId}`, {
       params: {
-        start_date: selectedDate, // Используем отформатированную дату
+        start_date: selectedDate.id,
       },
     });
-
+    // console.log(selectedDate.id)
     console.log('Ответ от сервера:', response.data);
     data.value = response.data;
   } catch (error) {
@@ -122,9 +131,10 @@ async function sendDate(selectedDate: Date) {
   }
 }
 
+
 async function getLessonDates() {
   try {
-    const response = await axios.get(`http://10.132.205.20:8081/api/dates/${props.entityRoute}/${props.entityId}`);
+    const response = await axios.get(`${backendUrl}/api/dates/${props.entityRoute}/${props.entityId}`);
 
     console.log('Ответ от сервера:', response.data);
     lessonDates.value = response.data;
