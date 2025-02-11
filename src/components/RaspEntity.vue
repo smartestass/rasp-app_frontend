@@ -88,7 +88,7 @@ const props = defineProps({
 });
 
 const formattedDate = computed(() => {
-  return date.value.ariaLabel || date.value.toLocaleDateString();
+  return date.value.toLocaleDateString();
 });
 
 const attrs = ref([
@@ -109,9 +109,9 @@ const closeCalendar = () => {
 
 async function sendDate(selectedDate: Date) {
   try {
-    const response = await axios.get(`api/${props.entityRoute}/${props.entityId}`, {
+    const response = await axios.get(`http://10.132.205.20:8081/api/${props.entityRoute}/${props.entityId}`, {
       params: {
-        start_date: selectedDate.id, // Используем отформатированную дату
+        start_date: selectedDate, // Используем отформатированную дату
       },
     });
 
@@ -124,7 +124,7 @@ async function sendDate(selectedDate: Date) {
 
 async function getLessonDates() {
   try {
-    const response = await axios.get(`http://localhost:8000/api/dates/${props.entityRoute}/${props.entityId}`);
+    const response = await axios.get(`http://10.132.205.20:8081/api/dates/${props.entityRoute}/${props.entityId}`);
 
     console.log('Ответ от сервера:', response.data);
     lessonDates.value = response.data;

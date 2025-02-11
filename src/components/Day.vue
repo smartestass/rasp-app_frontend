@@ -25,7 +25,7 @@ const props = defineProps({
     required: true,
   },
   lessons: {
-    type: Array,
+    type: Array as () => { id: number; [key: string]: any }[],
     required: true,
   },
     entityType: String,
