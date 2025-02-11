@@ -79,7 +79,7 @@ export default {
     async search() {
       try {
         const response = await axios.get(
-          `api/search/${this.searchType}/${this.searchQuery}`
+          `http://10.132.205.20:8081/api/search/${this.searchType}/${this.searchQuery}`
         );
         this.results = response.data;
       } catch (error) {

@@ -6,9 +6,10 @@ import RaspEntity from "@/components/RaspEntity.vue";
 import NavBar from "@/components/NavBar.vue";
 import {state} from "@/config/msalConfig.ts";
 import Help from "@/components/Help.vue";
+import SearchComponent from "@/components/SearchComponent.vue";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     // {
     //   path: '/',

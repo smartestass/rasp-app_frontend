@@ -61,6 +61,8 @@ const props = defineProps({
   },
   entityType: String,
   entityID: String,
+    group: {type: Object},
+    teacher: {type: Object}
 });
 
 const isGroupsExpanded = ref(false);
@@ -71,8 +73,8 @@ const toggleGroups = () => {
 // Отсортированный список групп: если entityType === 'Группа', то entityID идёт первой
 const sortedGroups = computed(() => {
   if (props.entityType === 'Группа') {
-    const mainGroup = props.lesson.groups.find(group => group.id === props.entityID);
-    const otherGroups = props.lesson.groups.filter(group => group.id !== props.entityID);
+    const mainGroup = props.lesson.groups.find((group: { id: string }) => group.id === props.entityID);
+    const otherGroups = props.lesson.groups.filter((group: {id: string }) => group.id !== props.entityID);
     return mainGroup ? [mainGroup, ...otherGroups] : props.lesson.groups;
   }
   return props.lesson.groups;
