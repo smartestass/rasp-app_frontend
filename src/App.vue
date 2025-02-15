@@ -1,4 +1,5 @@
 <template>
+  <p>sfsdfsdfsdf</p>
   <div class="app-container min-h-screen bg-white dark:bg-gray-900 flex flex-col items-center">
     <!-- Авторизованное состояние -->
     <div v-if="state.isAuthenticated" class="authenticated-view flex flex-col flex-grow w-full max-w-7xl mx-auto">
